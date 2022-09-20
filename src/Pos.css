@@ -1,0 +1,30 @@
+.paper_pricing{
+    height: 100vh;
+    background-color: #f1f1f1;
+    padding: 20px;
+}
+
+.paper_pricing h2{
+    margin-top: 70px;
+}
+
+.paper_pricing table,.paper_pricing th,.paper_pricing td {
+
+    border: 1px solid black;
+    
+    border-collapse: collapse;
+    
+    }
+    
+    .paper_pricing th,.paper_pricing td {
+    
+    padding: 10px;
+    
+    }
+    
+    .paper_pricing th {
+    
+    background-color: #FDDF95;
+    
+    }
+

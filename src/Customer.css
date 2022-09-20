@@ -1,0 +1,146 @@
+.heading{
+    margin: 10px;
+    margin-top: 70px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* .rowCustomer h2{
+    text-align: center;
+} */
+
+.quotation_submit{
+    /* height: 100vh; */
+    background-color: #f1f1f1;
+    /* background: url(doodle.jpg);
+    background-color: transparent; */
+    /* background: rgba(255, 255, 255, 0.4); */
+    background-size: cover;
+    /* width: 50%;
+    float: left; */
+    font-family: serif;
+    font-size: 20px;
+}
+
+.quotation_price{
+    /* height: 100vh; */
+    background-color: #f1f1f1;
+    /* width: 50%;
+    float: right; */
+    /* padding-top: 70px; */
+}
+
+.quotation{
+    margin: 10px;
+    padding: 0 20px;
+}
+
+.quotation label{
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.quotation select {
+    /* width: 75%; */
+    padding: 10px 10px 2px 10px;
+    margin: 10px 5px 15px;
+    /* margin: 15px 15px 15px 5px; */
+    background-color: #f1f1f1;
+    border: none;
+    border-bottom: 2px solid black;
+    font-family: serif;
+    font-size: 16px;
+}
+
+.quotation select option{
+    padding: 10px;
+}
+
+.quotation input{
+    padding: 10px 10px 2px 10px;
+    margin: 15px 15px 15px 5px;
+    background-color: #f1f1f1;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 14px;
+    /* width: 50%; */
+}
+
+.quotation select option{
+    padding: 5px;
+}
+
+.quotation .button{
+    padding: 15px 30px;
+    margin: 20px;
+    background-color: black;
+    cursor: pointer;
+    /* font-size: 16px; */
+    color: white;
+    border-radius: 4px;
+    border: none;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.columnThree {
+    float: left;
+    width: 33.33%;
+  }
+
+  .prePress, .print, .postPress{
+      display: flex;
+      flex-direction: column;
+  }
+
+  .paper, .price_calculation, .total_final_price, .cost_per_sheet{
+      display: flex;
+  }
+
+  .total_final_price, .cost_per_sheet{
+      justify-content: center;
+  }
+
+  .finalPrice{
+      text-align: center;
+  }
+
+  .price_border{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 50px;
+    /* margin: 10px; */
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+
+  .cost{
+      font-weight: bold;
+  }
+
+  /* .pressPressRow{
+      display: flex;
+  } */
+
+  .columnstart{
+      float: left;
+      width: 50%;
+  }
+
+  .quotation .design {
+      width: 100%;
+  }
+
+  .quotation .design select {
+      width: auto;
+  }
+  
+  /* Clear floats after the columns */
+  .rowCustomer:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
