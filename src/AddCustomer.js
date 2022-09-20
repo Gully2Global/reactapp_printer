@@ -14,7 +14,7 @@ const AddCustomer = () => {
 
     const createNewCustomer = () => {
         
-        axios.post("http://localhost:3001/createcustomer", {
+        axios.post("http://191.101.15.254:3001/createcustomer", {
                 uid:uid,
                 name:name,
                 contact:contact,
@@ -64,4 +64,4 @@ const AddCustomer = () => {
 export default withRouter(AddCustomer);
 
 
-//http://localhost:3001/
+//http://191.101.15.254:3001/

@@ -119,7 +119,7 @@ const Pricing = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await axios.get("http://localhost:3001/getprice");
+      const result = await axios.get("http://191.101.15.254:3001/getprice");
       setData(result.data);
       console.log(result);
     })();
