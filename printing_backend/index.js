@@ -9,12 +9,11 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-    host:"sql789.main-hosting.eu",
-    user:"u700529020_sagar",
-    password:"Printer!23",
-    database:"u700529020_printer"
+    host:"localhost",
+    user:"root",
+    password:"sagar1105",
+    database:"printing"
 });
-
 
 app.post('/login', (req,res) => {
     const username = req.body.username;
@@ -91,6 +90,29 @@ app.post("/createcustomer", (req,res) => {
         });
 });
 
+app.post("/createpricing", (req,res) => {
+    const paper_type = req.body.paper_type;
+    const paper_size = req.body.paper_size;
+    const brand = req.body.brand;
+    const gsm = req.body.gsm;
+    const gst = req.body.gst;
+    const transport_wages = req.body.transport_wages;
+    const net_price = req.body.net_price;
+    const press_profit = req.body.press_profit;
+    const customer_profit_percent = req.body.customer_profit_percent;
+    const press_profit_percent = req.body.press_profit_percent;
+    const net_cprice = req.body.net_cprice;
+    const net_pprice = req.body.net_pprice;
+
+    const sqlInsert = "INSERT INTO prices (paper_type,paper_size,brand,gsm,gst,transport_wages,net_price,press_profit,customer_profit_percent,press_profit_percent,net_cprice,net_pprice) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    db.query(sqlInsert, 
+        [paper_type,paper_size,brand,gsm,gst,transport_wages,net_price,press_profit,customer_profit_percent,press_profit_percent,net_cprice,net_pprice],
+        (err, result) => {
+            console.log(result);
+            res.send(result);
+        });
+});
+
 app.get("/getcustomer", (req,res) => {
     const sqlGet = "SELECT * FROM customers";
     db.query(sqlGet, (err,result) => {
@@ -125,6 +147,30 @@ app.post("/createemployee", (req,res) => {
     const sqlInsert = "INSERT INTO employees (name,department,designation,email,phone) VALUES (?,?,?,?,?)";
     db.query(sqlInsert, 
         [name,department,designation,email,phone],
+        (err, result) => {
+            console.log(result);
+            res.send(result);
+        });
+});
+
+app.put("/changePrice", (req,res) => {
+    const id = req.body.id;
+    const paper_type = req.body.paper_type;
+    const paper_size = req.body.paper_size;
+    const brand = req.body.brand;
+    const gsm = req.body.gsm;
+    const gst = req.body.gst;
+    const transport_wages = req.body.transport_wages;
+    const net_price = req.body.net_price;
+    const press_profit = req.body.press_profit;
+    const customer_profit_percent = req.body.customer_profit_percent;
+    const press_profit_percent = req.body.press_profit_percent;
+    const net_cprice = req.body.net_cprice;
+    const net_pprice = req.body.net_pprice;
+
+    const sqlPut = "UPDATE prices SET paper_type = ?, paper_size = ?, brand = ?, gsm = ?, gst = ?, transport_wages = ?, net_price = ?, press_profit = ?, customer_profit_percent = ?, press_profit_percent = ?, net_cprice = ?, net_pprice = ? WHERE id = ?";
+    db.query(sqlPut, 
+        [paper_type, paper_size, brand, gsm, gst, transport_wages, net_price, press_profit, customer_profit_percent, press_profit_percent, net_cprice, net_pprice, id],
         (err, result) => {
             console.log(result);
             res.send(result);

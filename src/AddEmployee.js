@@ -14,7 +14,7 @@ const AddCustomer = () => {
 
     const createNewEmployee = () => {
         
-        axios.post("http://191.101.15.254:3001/createemployee", {
+        axios.post("http://localhost:3001/createemployee", {
                 name:name,
                 department:department,
                 designation:designation,
@@ -30,7 +30,7 @@ const AddCustomer = () => {
         <Fragment>
             <div className="form_div">
                 <div className="customer_heading">
-                    <h2>Fill the form details to add a new customer</h2>
+                    <h2>Fill the form details to add a new employee</h2>
                 </div>
                 <form className="customer_form">
                     <div className="name form_value">

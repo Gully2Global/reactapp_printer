@@ -9,6 +9,7 @@ import ReactTable, { useFilters, useTable } from "react-table";
 
 const Pricing = () => {
   const [data, setData] = useState([]);
+  const [table, handleTable] = useState("");
 
   const [filterInput, setFilterInput] = useState("");
 
@@ -18,6 +19,39 @@ const Pricing = () => {
     setFilter("name", value); // Update the show.name filter. Now our table will filter and show only the rows which have a matching value
     setFilterInput(value);
   };
+
+  const changeTableValue = (e) => {
+    //  console.log(f);
+    //  console.log(table);
+    //  console.log(document.getElementsByClassName("table_descriptions")[1].innerHTML);
+    let start = e * 12;
+    let end = start + 12;
+    let values = [];
+    let i = 0;
+    while (start < end) {
+      values[i] = document.getElementsByClassName("table_descriptions")[start].innerHTML;
+      i++;
+      start++;
+    }
+    console.log(values);
+    axios.put("http://localhost:3001/changePrice", {
+      id: e + 1,
+      paper_type: values[0],
+      paper_size: values[1],
+      brand: values[2],
+      gsm: values[3],
+      gst: values[4],
+      transport_wages: values[5],
+      net_price: values[6],
+      press_profit: values[7],
+      customer_profit_percent: values[8],
+      press_profit_percent: values[9],
+      net_cprice: values[10],
+      net_pprice: values[11]
+    }).then((response) => {
+      console.log(response);
+    });
+  }
 
   const columns = useMemo(
     () => [
@@ -119,7 +153,7 @@ const Pricing = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await axios.get("http://191.101.15.254:3001/getprice");
+      const result = await axios.get("http://localhost:3001/getprice");
       setData(result.data);
       console.log(result);
     })();
@@ -127,9 +161,9 @@ const Pricing = () => {
 
   return (
     <div className="Master customer">
-        <div className="headers">
-            <h2>Pricing</h2>
-        </div>
+      {/* <div className="headers">
+        <h2>Pricing</h2>
+      </div> */}
       <div className="tables">
         {/* <div className="input_filter">
           <input
@@ -139,10 +173,10 @@ const Pricing = () => {
           />
         </div> */}
         <div className="table_display">
-          <table {...getTableProps()} className="table_rows">
+          <table {...getTableProps()} className="table_rows_price">
             <thead>
               {headerGroups.map(headerGroup => (
-                <tr {...headerGroup.getHeaderGroupProps()} className="table_rows">
+                <tr {...headerGroup.getHeaderGroupProps()} className="table_rows_price">
                   {headerGroup.headers.map(column => (
                     <th {...column.getHeaderProps()} className="table_headings">{column.render("Header")}</th>
                   ))}
@@ -153,16 +187,25 @@ const Pricing = () => {
               {rows.map((row, i) => {
                 prepareRow(row);
                 return (
-                  <tr {...row.getRowProps()} className="table_rows">
+                  <tr {...row.getRowProps()} className="table_rows_price">
                     {row.cells.map(cell => {
-                      return <td {...cell.getCellProps()} className="table_descriptions">{cell.render("Cell")}</td>;
+                      return <td {...cell.getCellProps()} className="table_descriptions" contentEditable="true" suppressContentEditableWarning="true">{cell.render("Cell")}</td>;
                     })}
+                    <td><button className="changeValue" onClick={() => changeTableValue(i)}>Change</button></td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
         </div>
+      </div>
+      {/* <div className="addButton">
+        <button onClick={navigateToAdd}>Add</button>
+      </div> */}
+      <div className="new_customer">
+        <Link to={`/dashboard/addPricing`}>
+          <input type="submit" value="Add new price" />
+        </Link>
       </div>
     </div>
   );

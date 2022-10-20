@@ -9,6 +9,7 @@ import AddCustomer from "./AddCustomer";
 import Pricing from "./Pricing";
 import Employee from "./Employee";
 import AddEmployee from "./AddEmployee";
+import AddPricing from "./AddPricing";
 // import IndexDashboard from "./IndexDashboard";
 // import NotFound from "./404";
 class Dashboard extends Component {
@@ -76,6 +77,9 @@ class Dashboard extends Component {
               </Route>
               <Route path={`/dashboard/addEmployee`}>
                 <AddEmployee />
+              </Route>
+              <Route path={`/dashboard/addPricing`}>
+                <AddPricing />
               </Route>
             </Switch>
           </div>
