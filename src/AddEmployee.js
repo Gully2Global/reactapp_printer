@@ -14,7 +14,7 @@ const AddCustomer = () => {
 
     const createNewEmployee = () => {
         
-        axios.post("http://localhost:3001/createemployee", {
+        axios.post("http://191.101.15.254:3001/createemployee", {
                 name:name,
                 department:department,
                 designation:designation,

@@ -88,7 +88,7 @@ const Master = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await axios.get("http://localhost:3001/getcustomer");
+      const result = await axios.get("http://191.101.15.254:3001/getcustomer");
       setData(result.data);
       console.log(result);
     })();
@@ -154,7 +154,7 @@ const Master = () => {
 // //   // const [tableData, setTableData] = useState([]);
 // //   const ids = [];
 // //   useLayoutEffect(() => {
-// //     axios.get("http://localhost:3001/getcustomer").then((response) => {
+// //     axios.get("http://191.101.15.254:3001/getcustomer").then((response) => {
 // //       console.log(response.data[0].uid);
 // //       for (let i = 0; i < response.data.length; i++) {
 // //         ids[i] = response.data[i].uid;
