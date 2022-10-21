@@ -124,13 +124,13 @@ const Customer = () => {
         console.log(pp2);
         console.log(pp3);
         // axios.
-        axios.post("http://localhost:3001/price", {
+        axios.post("http://191.101.15.254:3001/price", {
             paper_type: samplestr
         }).then((response) => {
-            axios.post("http://localhost:3001/weights", {
+            axios.post("http://191.101.15.254:3001/weights", {
                 paper_weight: sampleweight
             }).then((response1) => {
-                axios.post("http://localhost:3001/cutpieces", {
+                axios.post("http://191.101.15.254:3001/cutpieces", {
                     cut_size: paper_size
                 }).then((response2) => {
                     let psc = 0;

@@ -21,7 +21,7 @@ const AddCustomer = () => {
 
     const createNewPricing = () => {
         
-        axios.post("http://localhost:3001/createpricing", {
+        axios.post("http://191.101.15.254:3001/createpricing", {
             paper_type: paper_type,
             paper_size: board_type,
             brand: brand,
