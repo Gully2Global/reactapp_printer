@@ -9,10 +9,10 @@ app.use(express.json());
 app.use(cors());
 
 const db = mysql.createConnection({
-    host:"sql789.main-hosting.eu",
-    user:"u700529020_sagar",
+    host:"sql907.main-hosting.eu",
+    user:"u700529020_finalprinter",
     password:"Printer!23",
-    database:"u700529020_printer"
+    database:"u700529020_finalprinter"
 });
 
 app.post('/login', (req,res) => {

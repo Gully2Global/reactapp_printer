@@ -34,7 +34,7 @@ const Pricing = () => {
       start++;
     }
     console.log(values);
-    axios.put("http://191.101.15.254:3001/changePrice", {
+    axios.put("http://localhost:3001/changePrice", {
       id: e + 1,
       paper_type: values[0],
       paper_size: values[1],
@@ -153,7 +153,7 @@ const Pricing = () => {
 
   useEffect(() => {
     (async () => {
-      const result = await axios.get("http://191.101.15.254:3001/getprice");
+      const result = await axios.get("http://localhost:3001/getprice");
       setData(result.data);
       console.log(result);
     })();
